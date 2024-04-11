@@ -15,26 +15,40 @@ LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 
 // Vetores para armazenar perguntas e respostas
 String perguntas[][3] = {
-  {"Corrente é medida em volts?", "LED emite luz com corrente?", "Resistor limita corrente?"},
-  {"Celular exemplo de dispositivo movel?", "Microcontrolador e programavel?", "Diodo permite corrente em uma direcao?"},
-  {"Bluetooth permite comunicacao sem fio?", "NFC tecnologia usada em pagamentos moveis?", "Memoria RAM menos importante em moveis?"},
-  {"Capacitor armazena energia?", "Diodo permite corrente nos dois sentidos?", "Dispositivos moveis usam CPUs como desktops?"},
-  {"Circuito paralelo tem componentes em serie?", "Programacao em blocos é simplificada?", "Tecnologia eSIM substitui cartoes SIM fisicos?"}
+	{"Corrente e medida em volts?", "LED emite luz com corrente?", "Resistor limita corrente?"},
+    {"Resistor muda corrente?", "Potenciometro e tipo de resistor?", "Corrente e diferenca de potencial?"},
+    {"Interruptor controla tensao?", "Fusivel protege contra corrente?", "Transistor reduz sinais?"},
+    {"Sensor de luz detecta luminosidade?", "Servo motor controla movimento?", "Arduino e plataforma de prototipagem?"},
+    {"Smartphones usam redes neurais?", "Resistor muda tensao?", "Potenciometro muda corrente?"},
+    {"Bluetooth permite comunicacao sem fio?", "NFC usado em pagamentos?", "Memoria RAM importante?"},
+    {"HTML e linguagem de marcacao?", "JavaScript estiliza paginas?", "CSS torna paginas interativas?"},
+    {"Arduino Uno possui portas analogicas?", "Biblioteca controla motores?", "Circuito integrado tem componentes?"},
+    {"Capacitor armazena carga?", "Um diodo é um componente ativo?", "Diodo é unidirecional?"},
+    {"Microcontrolador e programavel?", "Diodo armazena carga?", "Tecnologia eSIM substitui SIM?"},
+  	{"Circuito paralelo tem componentes em serie?", "Programacao em blocos e simplificada?", "Potenciometro mede voltagem?"},
+    {"Osciloscopio mede sinais?", "Transformador altera a frequencia?", "Indutor bloqueia a corrente?"}
 };
 
 bool respostas[][3] = {
   {false, true, true},
-  {true, true, true},
   {true, true, false},
+  {false, true, false},
+  {true, true, true},
+  {true, false, true},
+  {true, true, true},
   {true, false, false},
-  {false, true, true}
+  {true, false, true},
+  {true, false, false},
+  {true, false, true},
+  {false, true, false},
+  {true, false, false}
 };
-
 
 
 // Variáveis globais
 int score = 0;
 int questao = 1;
+int level = 0;
 int skippedQuestions = 0;
 int scorePerLevel[] = {10, 20, 30};
 
@@ -72,22 +86,31 @@ void waitForStart() {
   score = 0;
   skippedQuestions = 3;
   questao = 1;
+  level = 0;
   delay(1000);
 }
 
 
 void startGame() {
   lcd.clear();
-  while(questao < 6){
+  for(int i=0; i < 3; i++){
+    while(questao < 6){
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Questao");
+      lcd.setCursor(8, 0);
+      lcd.print(questao);
+      lcd.setCursor(9, 0);
+      lcd.print(":");
+      delay(1500);
+      pergunta();
+    }
     lcd.clear();
-    lcd.setCursor(0, 0);
-    lcd.print("Questao");
-    lcd.setCursor(8, 0);
-    lcd.print(questao);
-    lcd.setCursor(9, 0);
-    lcd.print(":");
-    delay(1500);
-  	pergunta();
+  	lcd.setCursor(1, 0);
+  	lcd.print("PROXIMA FASE");
+    delay(2000);
+    level += 1;
+    questao = 0;
   }
   lcd.clear();
   lcd.setCursor(1, 0);
@@ -101,7 +124,6 @@ void pergunta() {
   if(skippedQuestions < 0){
   	gameOver();
   }
-  int level = random(0, 2);
   int index = random(0, 4);
   lcd.clear();
   lcd.print(perguntas[index][level]);
