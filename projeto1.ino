@@ -22,11 +22,7 @@ String perguntas[][3] = {
     {"Smartphones usam redes neurais?", "Resistor muda tensao?", "Potenciometro muda corrente?"},
     {"Bluetooth permite comunicacao sem fio?", "NFC usado em pagamentos?", "Memoria RAM importante?"},
     {"HTML e linguagem de marcacao?", "JavaScript estiliza paginas?", "CSS torna paginas interativas?"},
-    {"Arduino Uno possui portas analogicas?", "Biblioteca controla motores?", "Circuito integrado tem componentes?"},
-    {"Capacitor armazena carga?", "Um diodo é um componente ativo?", "Diodo é unidirecional?"},
-    {"Microcontrolador e programavel?", "Diodo armazena carga?", "Tecnologia eSIM substitui SIM?"},
-  	{"Circuito paralelo tem componentes em serie?", "Programacao em blocos e simplificada?", "Potenciometro mede voltagem?"},
-    {"Osciloscopio mede sinais?", "Transformador altera a frequencia?", "Indutor bloqueia a corrente?"}
+    {"Arduino Uno possui portas analogicas?", "Biblioteca controla motores?", "Circuito integrado tem componentes?"}
 };
 
 bool respostas[][3] = {
