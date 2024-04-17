@@ -17,6 +17,9 @@ Metodologia
 - Display LCD 16x2
 	
 Desenvolvimento do Projeto
+
+<img src="download.png" />
+
 O projeto foi desenvolvido utilizando a IDE do Arduino através do TinkerCad. O código é escrito em C++, a linguagem de programação padrão do Arduino.
 O jogo é controlado por quatro botões: dois para responder às perguntas (sim ou não), um para pular a pergunta atual e outro para desistir ou reiniciar o jogo. Um LED vermelho é usado para indicar se a resposta está correta ou não, além de indicar que o tempo está acabando; e um buzzer usado para dar feedback sonoro, quando a resposta é correta é fornecido um tipo de som, e quando a resposta está erradoa, é outro tipo de som.
 As perguntas e respostas são armazenadas em arrays no código, e uma função random é usada para selecionar uma pergunta aleatória a cada rodada. A pontuação do jogador é exibida no display LCD.
@@ -24,8 +27,14 @@ As perguntas escolhidas foram relacionadas a Computação Móvel e separadas por
 
 Experimentos
 Inicialmente, realizamos uma simulação do nosso projeto de jogo de perguntas e respostas no TinkerCad. Esta etapa foi importante para validar a lógica do nosso código e o design do nosso circuito antes de passarmos para a implementação física. Para nossa satisfação, a simulação funcionou perfeitamente, o que aumentou nossa confiança e expectativa para a próxima fase do projeto.
+
+<img src="download (1).png" />
+
 Em seguida, passamos para a montagem do projeto físico. Utilizamos um Arduino Uno como a base do nosso sistema, juntamente com vários outros componentes eletrônicos e cada componente foi cuidadosamente conectado conforme o design do nosso circuito.
 Após a montagem do circuito, fizemos o download do nosso código na placa, e para nossa alegria, o projeto físico funcionou exatamente como esperávamos. As perguntas eram exibidas corretamente no display LCD, os botões respondiam precisamente e o LED e o buzzer davam o feedback adequado.
+
+<img src="download (2).png" />
+
 
 Conclusão
 Após a conclusão do projeto, podemos dizer que o desenvolver deste apresentou desafios que exigiram uma compreensão da linguagem C++ e uma abordagem criativa para a resolução de problemas.
